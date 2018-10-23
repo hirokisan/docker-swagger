@@ -1,10 +1,17 @@
 version: "3"
 services:
-  swagger:
+  swagger-editor:
+    image: swaggerapi/swagger-editor
+    container_name: "swagger-editor"
+    ports:
+      - "8081:8080"
+
+  swagger-ui:
     image: swaggerapi/swagger-ui
+    container_name: "swagger-ui"
     volumes:
       - ./swagger.yml:/usr/share/nginx/html/swagger.yml
     environment:
       API_URL: swagger.yml
     ports:
-      - "8080:8080"
+      - "8082:8080"
