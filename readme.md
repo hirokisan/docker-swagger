@@ -1,5 +1,15 @@
 # docker-swagger
 
+## Run
+```
+$ docker-compose up -d
+```
+
+## Stop
+```
+$ docker-compose stop
+```
+
 ## Browse
 
 ### swagger-editor
