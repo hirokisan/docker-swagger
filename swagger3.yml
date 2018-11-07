@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Todo API
+  description: Todo API
+
+servers:
+  - url: http://localhost:8082/v1
+    description: develop server
+  - url: http://localhost:8082/v2
+    description: production server
+
+security:
+  BasicAuth: []
+
+paths:
+  /todo:
+    get:
+      summary: Returns todo list
+      description: Returns todo list
+      parameters: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Todo'
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    Todo:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+
